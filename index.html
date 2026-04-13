@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American Partners Community Development Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2e4a;
+    --gold: #c8922a;
+    --gold-light: #f0c96a;
+    --cream: #faf7f2;
+    --warm-white: #fffef9;
+    --text: #1e1e1e;
+    --muted: #5c5c5c;
+    --border: #e2ddd5;
+    --success: #2d6a4f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    max-width: 180px;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none; align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 14px; font-weight: 400;
+    transition: color .2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold) !important;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    transition: background .2s !important;
+  }
+
+  .nav-cta:hover { background: #b07820 !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #fff; border-radius: 2px;
+    transition: .3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #243d5f 60%, #1a3550 100%);
+    color: #fff;
+    padding: 100px 5vw 90px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(200,146,42,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(200,146,42,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200,146,42,0.22);
+    border: 1px solid rgba(200,146,42,0.45);
+    color: var(--gold-light);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero p {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #fff;
+    padding: 13px 30px;
+    border-radius: 8px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #b07820; transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    transition: border-color .2s, background .2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* ── IMPACT STATS ── */
+  .stats {
+    background: var(--cream);
+    padding: 56px 5vw;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem; font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 13px; color: var(--muted);
+    margin-top: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 5vw; }
+
+  .section-tag {
+    font-size: 12px; font-weight: 600; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .section-body {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+
+  /* ── MISSION ── */
+  #mission { background: var(--warm-white); }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1100px;
+  }
+
+  .mission-values {
+    display: grid; gap: 22px;
+  }
+
+  .value-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+
+  .value-card h4 {
+    font-weight: 600; font-size: 15px; color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .value-card p {
+    font-size: 13.5px; color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PROGRAMS ── */
+  #programs { background: var(--cream); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+  }
+
+  .program-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    transition: box-shadow .2s, transform .2s;
+  }
+
+  .program-card:hover {
+    box-shadow: 0 8px 32px rgba(26,46,74,0.1);
+    transform: translateY(-2px);
+  }
+
+  .program-icon {
+    width: 48px; height: 48px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .program-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .program-card p {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .program-link {
+    font-size: 13px; font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--gold);
+    padding-bottom: 1px;
+    transition: opacity .2s;
+  }
+
+  .program-link:hover { opacity: 0.7; }
+
+  /* ── DONATE ── */
+  #donate {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  #donate .section-title { color: #fff; }
+  #donate .section-body { color: rgba(255,255,255,0.72); }
+
+  .donate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1000px;
+  }
+
+  .donate-form {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 36px;
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .amount-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 6px;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .amount-btn:hover, .amount-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+
+  .custom-amount-wrap {
+    margin-bottom: 20px;
+  }
+
+  .custom-amount-wrap label {
+    display: block; font-size: 13px; color: rgba(255,255,255,0.65);
+    margin-bottom: 6px;
+  }
+
+  .custom-amount-wrap input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px; font-weight: 500;
+    padding: 12px 16px;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color .2s;
+    outline: none;
+  }
+
+  .custom-amount-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+
+  .custom-amount-wrap input:focus { border-color: var(--gold); }
+
+  .frequency-tabs {
+    display: flex; gap: 8px; margin-bottom: 24px;
+  }
+
+  .freq-tab {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    border-radius: 7px;
+    padding: 9px 4px;
+    font-size: 13px; font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+  }
+
+  .freq-tab:hover, .freq-tab.active {
+    background: rgba(200,146,42,0.2);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  .donate-submit {
+    width: 100%;
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .donate-submit:hover { background: #b07820; transform: translateY(-1px); }
+
+  .secure-note {
+    text-align: center;
+    font-size: 12px; color: rgba(255,255,255,0.45);
+    margin-top: 14px;
+  }
+
+  .why-donate h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .impact-row {
+    display: flex; gap: 16px; align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .impact-amount {
+    min-width: 68px;
+    background: rgba(200,146,42,0.2);
+    border: 1px solid rgba(200,146,42,0.35);
+    color: var(--gold-light);
+    font-weight: 700; font-size: 15px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 4px;
+    line-height: 1.2;
+  }
+
+  .impact-desc {
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    padding-top: 4px;
+  }
+
+  .other-ways {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .other-ways h4 {
+    font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .other-ways a {
+    display: block;
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color .2s;
+  }
+
+  .other-ways a:hover { color: var(--gold-light); }
+
+  /* ── GET INVOLVED ── */
+  #get-involved { background: var(--warm-white); }
+
+  .involved-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+  }
+
+  .involved-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    transition: box-shadow .2s, transform .2s;
+  }
+
+  .involved-card:hover {
+    box-shadow: 0 6px 24px rgba(26,46,74,0.09);
+    transform: translateY(-2px);
+  }
+
+  .involved-icon {
+    font-size: 2rem; margin-bottom: 14px;
+  }
+
+  .involved-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .involved-card p {
+    font-size: 13.5px; color: var(--muted);
+    margin-bottom: 18px; line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: grid; gap: 16px;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color .2s;
+    outline: none;
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--navy);
+  }
+
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+
+  .contact-form .btn-primary {
+    width: fit-content;
+    border: none;
+    cursor: pointer;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  .contact-detail {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .contact-detail-icon {
+    width: 38px; height: 38px; flex-shrink: 0;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  .contact-detail-text strong {
+    display: block; font-size: 13px; font-weight: 600; color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .contact-detail-text span {
+    font-size: 13.5px; color: var(--muted);
+  }
+
+  .social-row {
+    display: flex; gap: 12px; margin-top: 28px;
+  }
+
+  .social-btn {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .social-btn:hover { background: var(--gold); }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--navy);
+    color: #fff;
+    padding: 60px 5vw;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; margin-bottom: 10px;
+  }
+
+  .newsletter p {
+    color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 28px;
+  }
+
+  .newsletter-form {
+    display: flex; gap: 10px; max-width: 460px;
+    margin: 0 auto; flex-wrap: wrap;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.22);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    padding: 11px 16px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    min-width: 200px;
+    transition: border-color .2s;
+  }
+
+  .newsletter-form input:focus { border-color: var(--gold); }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+  .newsletter-form button {
+    background: var(--gold);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px; font-weight: 600;
+    padding: 11px 22px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background .2s;
+  }
+
+  .newsletter-form button:hover { background: #b07820; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f1e30;
+    color: rgba(255,255,255,0.65);
+    padding: 50px 5vw 30px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 28px;
+  }
+
+  .footer-brand p {
+    font-size: 13px; line-height: 1.7;
+    margin-top: 12px;
+    color: rgba(255,255,255,0.5);
+    max-width: 240px;
+  }
+
+  .footer-col h4 {
+    font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color .2s;
+  }
+
+  .footer-col a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+  .ein-badge {
+    font-size: 11px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 4px 12px; border-radius: 20px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── MODALS ── */
+  .modal-backdrop {
+    display: none;
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.5);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 480px; width: 100%;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none;
+    font-size: 22px; cursor: pointer;
+    color: var(--muted);
+  }
+
+  .modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .modal p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+  .modal .contact-form input,
+  .modal .contact-form select,
+  .modal .contact-form textarea {
+    background: var(--cream);
+  }
+
+  .success-msg {
+    display: none;
+    background: #e9f5ee;
+    border: 1px solid #a8d5b5;
+    color: var(--success);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px; text-align: center;
+    margin-top: 12px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; }
+    .nav-links.open {
+      display: flex;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: var(--navy);
+      padding: 20px 5vw 28px;
+      gap: 20px;
+    }
+    .hamburger { display: flex; }
+    .mission-grid,
+    .donate-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 500px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .amount-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">AP</div>
+    <div class="nav-logo-text">American Partners Community Development Foundation</div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#get-involved">Get Involved</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#donate" class="nav-cta">Donate</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Nonprofit Organization · Est. 2024</div>
+    <h1>Building <em>Stronger Communities</em> from the Ground Up</h1>
+    <p>American Partners CDF invests in people and places — funding housing, economic opportunity, education, and resilience in underserved communities across America.</p>
+    <div class="hero-actions">
+      <a href="#donate" class="btn-primary">Donate Today</a>
+      <a href="#programs" class="btn-outline">Our Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Families Served</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Partner Organizations</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$0.88</div>
+      <div class="stat-label">of Every Dollar to Programs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">U.S.-Based Impact</div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="mission-grid">
+    <div>
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">Rooted in Community. Driven by Equity.</h2>
+      <p class="section-body">American Partners Community Development Foundation (APCDF) is a 501(c)(3) nonprofit that partners with local organizations, community leaders, and residents to create lasting, equitable change. We believe every American deserves access to safe housing, economic mobility, quality education, and a healthy environment — regardless of zip code.</p>
+      <a href="#contact" class="btn-primary">Partner With Us</a>
+    </div>
+    <div class="mission-values">
+      <div class="value-card">
+        <h4>🤝 Community-Led</h4>
+        <p>We follow the lead of the communities we serve. Residents shape our priorities and guide how resources are deployed.</p>
+      </div>
+      <div class="value-card">
+        <h4>📊 Accountable & Transparent</h4>
+        <p>Our financials are publicly available. We pursue rigorous evaluation of every program to maximize impact per dollar.</p>
+      </div>
+      <div class="value-card">
+        <h4>🌱 Long-Term Investment</h4>
+        <p>We focus on systemic change — not one-time fixes. We measure success over years, not news cycles.</p>
+      </div>
+      <div class="value-card">
+        <h4>🔗 Partnership Model</h4>
+        <p>APCDF works alongside existing community organizations, amplifying their work rather than duplicating it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section-tag">What We Do</div>
+  <h2 class="section-title">Our Programs</h2>
+  <p class="section-body">We operate across four interconnected focus areas, knowing that lasting change requires addressing the root causes of inequality — not just its symptoms.</p>
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="program-icon">🏘️</div>
+      <h3>Affordable Housing Initiative</h3>
+      <p>We support housing counseling, down-payment assistance, and advocacy for zoning reform to expand access to safe, stable homes for low-income families.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">💼</div>
+      <h3>Economic Opportunity Fund</h3>
+      <p>Small-business grants, workforce development, and financial literacy programs that help community members build wealth and career pathways.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📚</div>
+      <h3>Education & Youth Futures</h3>
+      <p>After-school tutoring, college access coaching, and STEM enrichment programs for K-12 students in high-need school districts.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">🌿</div>
+      <h3>Community Resilience</h3>
+      <p>Disaster preparedness, green infrastructure, and neighborhood improvement grants that strengthen communities against environmental and economic shocks.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+  <div class="donate-grid">
+    <div>
+      <div class="section-tag">Give Today</div>
+      <h2 class="section-title">Your Donation Makes a Difference</h2>
+      <p class="section-body">100% tax-deductible. Every contribution directly funds community development programs. We're proud that 88¢ of every dollar goes straight to program work.</p>
+
+      <div class="why-donate">
+        <h3>What Your Gift Does</h3>
+        <div class="impact-row">
+          <div class="impact-amount">$25</div>
+          <div class="impact-desc">Provides a student with one month of after-school tutoring and school supplies.</div>
+        </div>
+        <div class="impact-row">
+          <div class="impact-amount">$100</div>
+          <div class="impact-desc">Funds one hour of small-business coaching for an aspiring entrepreneur.</div>
+        </div>
+        <div class="impact-row">
+          <div class="impact-amount">$500</div>
+          <div class="impact-desc">Covers a family's housing counseling session to prevent eviction or foreclosure.</div>
+        </div>
+        <div class="impact-row">
+          <div class="impact-amount">$2,500</div>
+          <div class="impact-desc">Seeds a micro-grant for a neighborhood improvement project chosen by residents.</div>
+        </div>
+
+        <div class="other-ways">
+          <h4>Other Ways to Give</h4>
+          <a href="#contact">Planned giving &amp; bequests</a>
+          <a href="#contact">Corporate matching programs</a>
+          <a href="#contact">Stock &amp; asset donations</a>
+          <a href="#contact">Donate in honor / in memory</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="donate-form">
+        <div class="frequency-tabs">
+          <button class="freq-tab active" onclick="setFreq(this,'one')">One-Time</button>
+          <button class="freq-tab" onclick="setFreq(this,'monthly')">Monthly</button>
+          <button class="freq-tab" onclick="setFreq(this,'annual')">Annual</button>
+        </div>
+
+        <div class="amount-grid">
+          <button class="amount-btn" onclick="setAmount(this,'$25')">$25</button>
+          <button class="amount-btn" onclick="setAmount(this,'$50')">$50</button>
+          <button class="amount-btn" onclick="setAmount(this,'$100')">$100</button>
+          <button class="amount-btn" onclick="setAmount(this,'$250')">$250</button>
+          <button class="amount-btn" onclick="setAmount(this,'$500')">$500</button>
+          <button class="amount-btn" onclick="setAmount(this,'$1000')">$1,000</button>
+        </div>
+
+        <div class="custom-amount-wrap">
+          <label>Or enter a custom amount</label>
+          <input type="text" id="custom-amount" placeholder="$ Enter amount" oninput="clearSelected()">
+        </div>
+
+        <button class="donate-submit" onclick="handleDonate()">
+          Donate Securely →
+        </button>
+
+        <p class="secure-note">🔒 Secured by Stripe · 501(c)(3) · All donations are tax-deductible</p>
+
+        <div class="success-msg" id="donate-success">
+          🎉 Thank you! We'll redirect you to our secure payment page. In the meantime, check your email for a confirmation.
+        </div>
+
+        <p style="margin-top:18px; font-size:12px; color:rgba(255,255,255,0.38); text-align:center;">
+          To set up online payments, connect a free <strong style="color:rgba(255,255,255,0.5)">Stripe</strong> account (stripe.com/nonprofit) or <strong style="color:rgba(255,255,255,0.5)">PayPal Giving Fund</strong>. Both offer reduced fees for nonprofits.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="get-involved">
+  <div class="section-tag">Join Us</div>
+  <h2 class="section-title">More Ways to Get Involved</h2>
+  <p class="section-body">Whether you have time, talent, or treasure to offer — there is a place for you at APCDF.</p>
+  <div class="involved-grid">
+    <div class="involved-card">
+      <div class="involved-icon">🙋</div>
+      <h3>Volunteer</h3>
+      <p>Share your skills — whether you're a teacher, lawyer, builder, or coach — our programs need you on the ground.</p>
+      <button class="btn-primary" onclick="openModal('volunteer')">Sign Up to Volunteer</button>
+    </div>
+    <div class="involved-card">
+      <div class="involved-icon">🏢</div>
+      <h3>Corporate Partnership</h3>
+      <p>Employee volunteer days, matching gift programs, and cause marketing partnerships with measurable community impact.</p>
+      <button class="btn-primary" onclick="openModal('corporate')">Become a Partner</button>
+    </div>
+    <div class="involved-card">
+      <div class="involved-icon">📢</div>
+      <h3>Spread the Word</h3>
+      <p>Follow us on social media and share our work. Awareness is a powerful — and free — way to drive community support.</p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
+        <a href="#" class="social-btn" title="Facebook">📘</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="#" class="social-btn" title="LinkedIn">💼</a>
+        <a href="#" class="social-btn" title="Twitter/X">🐦</a>
+      </div>
+    </div>
+    <div class="involved-card">
+      <div class="involved-icon">🗳️</div>
+      <h3>Advocate</h3>
+      <p>Join our policy action network and lend your voice to housing, education, and economic justice legislation.</p>
+      <button class="btn-primary" onclick="openModal('advocate')">Join the Network</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Reach Out</div>
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="contact-grid">
+    <div>
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <div class="form-row">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
+        </div>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone (optional)">
+        <select>
+          <option value="" disabled selected>I'm interested in…</option>
+          <option>Making a donation</option>
+          <option>Volunteering</option>
+          <option>Corporate partnership</option>
+          <option>Program inquiry</option>
+          <option>Media / press</option>
+          <option>General inquiry</option>
+        </select>
+        <textarea placeholder="Your message…"></textarea>
+        <button type="submit" class="btn-primary">Send Message →</button>
+        <div class="success-msg" id="contact-success">
+          ✅ Message sent! A member of our team will follow up within 2 business days.
+        </div>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>We'd Love to Hear From You</h3>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Mailing Address</strong>
+          <span>P.O. Box [Your City], [State] [ZIP]</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>info@apcdf.org</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          <span>(XXX) XXX-XXXX</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <strong>Office Hours</strong>
+          <span>Mon – Fri, 9:00 AM – 5:00 PM EST</span>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-btn" title="Facebook">📘</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="#" class="social-btn" title="LinkedIn">💼</a>
+        <a href="#" class="social-btn" title="Twitter/X">🐦</a>
+      </div>
+      <div style="margin-top:28px; padding:18px; background:var(--warm-white); border:1px solid var(--border); border-radius:10px;">
+        <p style="font-size:13px; color:var(--muted); line-height:1.7;">
+          <strong style="color:var(--navy);">501(c)(3) Tax-Exempt Organization</strong><br>
+          EIN: [XX-XXXXXXX]<br>
+          Donations are tax-deductible to the fullest extent of the law.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Stay Connected to the Work</h2>
+  <p>Get quarterly impact reports, program updates, and volunteer opportunities delivered to your inbox.</p>
+  <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:36px;height:36px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">AP</div>
+        <span style="color:#fff;font-size:13px;font-weight:500;line-height:1.3;max-width:160px;">American Partners CDF</span>
+      </div>
+      <p>Investing in the people and places that make America strong — one community at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Organization</h4>
+      <a href="#mission">Our Mission</a>
+      <a href="#programs">Programs</a>
+      <a href="#contact">Leadership</a>
+      <a href="#contact">Annual Report</a>
+      <a href="#contact">Financials</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <a href="#donate">Donate</a>
+      <a href="#get-involved">Volunteer</a>
+      <a href="#get-involved">Corporate Partners</a>
+      <a href="#get-involved">Advocate</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#contact">Press &amp; Media</a>
+      <a href="#contact">Grant Opportunities</a>
+      <a href="#contact">Community Resources</a>
+      <a href="#contact">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 American Partners Community Development Foundation. All rights reserved.</p>
+    <div class="ein-badge">501(c)(3) · EIN: [XX-XXXXXXX]</div>
+  </div>
+</footer>
+
+<!-- VOLUNTEER MODAL -->
+<div class="modal-backdrop" id="modal-volunteer">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('volunteer')">×</button>
+    <h2>Volunteer With Us</h2>
+    <p>Tell us about your interests and availability and we'll match you with a program that needs your skills.</p>
+    <form class="contact-form" onsubmit="handleModal(event, 'volunteer')">
+      <div class="form-row">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+      </div>
+      <input type="email" placeholder="Email Address" required>
+      <select>
+        <option value="" disabled selected>Area of interest</option>
+        <option>Education / Tutoring</option>
+        <option>Housing / Construction</option>
+        <option>Economic Development</option>
+        <option>Admin / Operations</option>
+        <option>Communications / Social Media</option>
+        <option>Legal / Financial Services</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Tell us about your background and availability…" style="min-height:80px;"></textarea>
+      <button type="submit" class="btn-primary">Submit Application</button>
+      <div class="success-msg" id="modal-volunteer-success">✅ Thank you! We'll be in touch within 3 business days.</div>
+    </form>
+  </div>
+</div>
+
+<!-- CORPORATE MODAL -->
+<div class="modal-backdrop" id="modal-corporate">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('corporate')">×</button>
+    <h2>Corporate Partnership</h2>
+    <p>Let's explore how your company can create meaningful community impact together.</p>
+    <form class="contact-form" onsubmit="handleModal(event, 'corporate')">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Company Name" required>
+      </div>
+      <input type="email" placeholder="Work Email" required>
+      <select>
+        <option value="" disabled selected>Type of partnership</option>
+        <option>Employee volunteer day</option>
+        <option>Matching gift program</option>
+        <option>Cause marketing</option>
+        <option>Event sponsorship</option>
+        <option>Grant funding</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Tell us about your company and goals…" style="min-height:80px;"></textarea>
+      <button type="submit" class="btn-primary">Start Conversation</button>
+      <div class="success-msg" id="modal-corporate-success">✅ Great! Our partnership team will reach out within 2 business days.</div>
+    </form>
+  </div>
+</div>
+
+<!-- ADVOCATE MODAL -->
+<div class="modal-backdrop" id="modal-advocate">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('advocate')">×</button>
+    <h2>Join Our Advocacy Network</h2>
+    <p>Get policy alerts, talking points, and tools to advocate for community development in your region.</p>
+    <form class="contact-form" onsubmit="handleModal(event, 'advocate')">
+      <div class="form-row">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+      </div>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="City / State">
+      <button type="submit" class="btn-primary">Join the Network</button>
+      <div class="success-msg" id="modal-advocate-success">✅ Welcome! Watch your inbox for our next action alert.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+// NAV
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// Smooth-close nav on link click (mobile)
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+});
+
+// DONATE — amount selection
+let selectedAmount = null;
+
+function setAmount(btn, val) {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedAmount = val;
+  document.getElementById('custom-amount').value = '';
+}
+
+function clearSelected() {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+  selectedAmount = null;
+}
+
+function setFreq(btn, val) {
+  document.querySelectorAll('.freq-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function handleDonate() {
+  const custom = document.getElementById('custom-amount').value.trim();
+  const amount = custom || selectedAmount;
+  if (!amount) {
+    alert('Please select or enter a donation amount.');
+    return;
+  }
+  document.getElementById('donate-success').style.display = 'block';
+  // TODO: replace with Stripe Checkout or PayPal link
+  // e.g., window.location.href = 'https://donate.stripe.com/your-link';
+}
+
+// CONTACT
+function handleContact(e) {
+  e.preventDefault();
+  document.getElementById('contact-success').style.display = 'block';
+  e.target.reset();
+  // TODO: wire to EmailJS (free), Formspree, or Netlify Forms
+}
+
+// NEWSLETTER
+function handleNewsletter(e) {
+  e.preventDefault();
+  alert('Thank you for subscribing! Welcome to the APCDF community.');
+  e.target.reset();
+  // TODO: wire to Mailchimp embedded form or ConvertKit free tier
+}
+
+// MODALS
+function openModal(name) {
+  document.getElementById('modal-' + name).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(name) {
+  document.getElementById('modal-' + name).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleModal(e, name) {
+  e.preventDefault();
+  document.getElementById('modal-' + name + '-success').style.display = 'block';
+  e.target.reset();
+}
+
+// Close modal on backdrop click
+document.querySelectorAll('.modal-backdrop').forEach(bd => {
+  bd.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+</script>
+</body>
+</html>
